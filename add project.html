@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add project</title>
+        <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+   <center>
+    <!--------Add project------>
+
+    <div class="form-inner">
+      <h1>Add Project</h1>
+      <form action="#" class="add-product" onsubmit="loginSuccess()">
+        <div class="field">
+          <input type="text" placeholder="Project Name" required/>
+        </div>
+        <div class="field">
+            <textarea name="des" id="descrpiton" cols="103" rows="3"placeholder="Project Description"required></textarea>
+        </div>
+        <br>
+         <div class="invoice-body">
+
+         <table>
+          <thead>
+            <th style="padding-left: 12px">TASK NAME</th>
+            <th>TASK DESC</th>
+            <th>ASSIGN TO</th>
+            <th>START DATE</th>
+
+            <th>DUE DATE</th>
+            <th>STATUS</th>
+            <th style="text-align: right">ACTION</th>
+          </thead>
+
+          <tbody id="table-body">
+            <tr class="single-row">
+              <td>
+                <input
+                  type="text"
+                  placeholder="task title"
+                  class="product left"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="task description"
+                  class="product left"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="team member"
+                  class="product left"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="01/04/2023"
+                  class="product left"
+                />
+              </td>
+              <td>
+                <input
+                  type="text"
+                  placeholder="09/04/2023"
+                  class="product left"
+                />
+              </td>
+              <td>
+    <select class="product left"> 
+      <option value="" disabled selected></option>
+
+        <option>On going</option> 
+        <option>Complete</option> 
+        <option>Incomplete</option> 
+    </select>
+
+              </td>
+              <td style="text-align: right">
+                <span class="material-icons">Delete</span>
+              </td>
+            </tr>
+
+            <tr style="padding-left: 20px">
+              <td class="dashed">
+                <div class="float">
+                  <a href="#" class="float" id="add-row">
+                    <span class="material-icons plus">➕</span>
+                  </a>
+                </div>
+              </td>
+              <td class="dashed"></td>
+              <td class="dashed"></td>
+              <td class="dashed"></td>
+              <td class="dashed"></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div class="field btn">
+          <div class="btn-layer"></div>
+          <input type="submit" value="Add Project" />
+        </div>
+        <br>
+        <div class="container">
+          <a href="index.html" class="logout-link">Logout</a>
+        </div>
+
+  </center>
+  <script>
+    //Add new row
+const tBody = document.getElementById("table-body");
+
+addNewRow = () => {
+  const row = document.createElement("tr");
+  row.className = "single-row";
+  row.innerHTML = `<td><input type="" placeholder="task title" class="product left"></td>
+  <td>
+    <input
+      type="text"
+      placeholder="task description"
+      class="product left"
+    />
+  </td>
+  
+                    <td><input type="text" placeholder="team member "class="product left"</td>
+                    <td><input type="text" placeholder="01/04/2023" class="product left"</td>
+                    <td><input type="text" placeholder="09/04/2023" class="product left"</td>
+                    <td><select class="product left"> 
+                      <option value="" disabled selected></option>
+                
+                        <option>On going</option> 
+                        <option>Complete</option> 
+                        <option>Incomplete</option> 
+                    </select>  
+                  </td>                  
+                    <td style="text-align: right;"><span class="material-icons" action="delete">Delete</span></td>`;
+
+  tBody.insertBefore(row, tBody.lastElementChild.previousSibling);
+};
+
+document.getElementById("add-row").addEventListener("click", (e) => {
+  e.preventDefault();
+  addNewRow();
+});
+//Delete row from the table
+tBody.addEventListener("click", (e) => {
+  let el = e.target;
+  const deleteROW = e.target.attributes.action.value;
+  if (deleteROW == "delete") {
+    delRow(el);
+    overallSum();
+  }
+});
+
+//Target row and remove from DOM;
+delRow = (el) => {
+  el.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode);
+};
+function loginSuccess() {
+  alert("Project added successfully!");}
+
+  </script>
+  
+  </body>
+</html>

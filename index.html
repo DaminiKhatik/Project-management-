@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <center>
+      <!-- login -->
+      <div class="form-inner">
+        <h1>Login</h1>
+        <form action="add project.html" class="login" onsubmit="loginSuccess()">
+          <div class="field">
+            <input type="text" placeholder="Email Address" required />
+          </div>
+          <div class="field">
+            <input type="password" placeholder="Password" required />
+          </div>
+          <div class="pass-link">
+            <a href="#">Forgot password?</a>
+          </div>
+          <button class="btn">Login</button>
+
+          <div class="signup-link">
+            Not a member? <a href="signup.html">Signup now</a>
+          </div>
+        </form>
+      </div>
+    </center>
+
+    <script>
+      function loginSuccess() {
+        alert("Login successful!");
+
+        window.location.href = "add project.html";
+      }
+    </script>
+  </body>
+</html>
